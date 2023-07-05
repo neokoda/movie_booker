@@ -1,0 +1,70 @@
+#main {
+    width: 75%;
+    padding: 25px;
+    height: 400px;
+}
+
+ul {
+    margin: 20px 0;
+    padding-left: 25px;
+}
+
+li {
+    margin: 8px 0;
+}
+
+#topup-or-withdraw {
+    width: 40%;
+    flex-direction: column;
+    margin-left: 250px;
+    padding: 15px;
+}
+
+form {
+    padding: 10px;   
+}
+
+form .wrapper {
+    margin: 20px 0;
+}
+
+input {
+    border-radius: 100px;
+    padding: 0.5rem;    
+    font-family: 'Gotham'; 
+}
+
+.input-title {
+    margin: 10px 0;
+}
+
+.error-msg {
+    margin-top: 5px;
+}
+
+button {
+    margin-right: 10px;
+}
+
+#change-pw {
+    padding: 25px;
+    width: 30%;
+}
+
+.success-msg {
+    margin-top: 15px;
+    color: rgb(0, 200, 0);
+}
+
+#success-window {
+    padding: 25px;
+    flex-direction: column;
+    height: 130px;
+    width: 500px;
+    justify-content: space-between;
+}
+
+#success-window a:link, #success-window a:visited {
+    text-decoration: underline;
+    font-weight: 1000;
+}

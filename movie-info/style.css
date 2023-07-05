@@ -1,0 +1,29 @@
+#main {
+    width: 95%;
+    padding: 10px;
+}
+
+#image-container, #content {
+    margin: 10px 15px;
+}
+
+#content > * {
+    margin: 15px;
+}
+
+img {
+    height: 500px;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.error-msg {
+    font-size: 16px;
+    margin-top: 10px;
+}

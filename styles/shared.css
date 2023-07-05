@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/gotham/Gotham-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Gotham-Bold';
+    src: url('../fonts/gotham/Gotham-Bold.otf') format('opentype');
+}
+
+html {
+    font-family: 'Gotham';
+    background-color: rgb(0, 30, 70);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+#nav-header {
+    background: radial-gradient(circle, rgb(255, 0, 0), rgb(190, 0, 0));
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgba(90, 0, 90, 0.5);
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+#nav-header i {
+    margin:  auto 10px auto 0;
+}
+
+.header-part {
+    display: inline-flex;
+    justify-content: space-around;
+    margin: 0.5rem 0.5rem;
+}
+
+.header-link {
+    display: inline-flex;
+    padding: 0.75rem 1.5rem;
+    margin: 0 5px;
+    border-radius: 200px;
+    transition: background-color 0.3s ease;
+}
+
+.header-link:hover {
+    background-color: rgba(255, 255, 255, 0.25)
+}
+
+.header-link a {
+    text-transform: uppercase;
+}
+
+button {
+    font-family: 'Gotham';
+    background: linear-gradient(107.2deg, rgb(200, 15, 15) 10.6%, rgb(247, 0, 0) 91.1%);
+    border: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+}
+
+button:hover {
+    filter: brightness(1.2);
+    transform: scale(1.025);
+}
+
+h1 {
+    font-family: 'Gotham-Bold';
+    font-size: 40px;
+}
+
+h2 {
+    font-family: 'Gotham-Bold';
+    font-size: 35px;
+}
+
+li {
+    font-size: 21px;
+}
+
+p {
+    text-align: justify;
+    font-size: 22px;
+}
+
+h1, h2, li, p, ul, form {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgb(0, 0, 0);
+}
+
+.error-msg {
+    color: rgb(204, 0, 0);
+    font-size: 13px;
+}
+
+.window {
+    background: radial-gradient(rgb(0, 38, 77), rgb(0, 23, 45));
+    color: rgb(255, 255, 255);  
+    box-shadow: 0 0 20px rgba(0, 41, 90, 1);
+    border-radius: 15px;
+    display: flex;
+}
+
+.main-window {
+    margin-top: 80px;
+}

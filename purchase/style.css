@@ -1,0 +1,159 @@
+.window {
+    width: 40%;
+    flex-direction: column;
+}
+
+form {
+    padding: 10px 25px;
+}
+
+form > * {
+    margin: 15px 0;
+}
+
+p {
+    font-size: 20px;
+}
+
+.inline-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+    align-items: baseline;
+}
+
+.input-title {
+    margin-bottom: 5px;
+}
+
+.error-msg {
+    margin-top: 5px;
+}
+
+select, #date {
+    border: 1px solid black;
+    font-size: 18px;
+    font-family: 'Gotham';
+    text-align: center;
+    border-radius: 10px;
+}
+
+select {
+    padding: 10px;
+}
+
+#date {
+    width: 150px;
+    padding: 9px;
+} 
+
+#seat-selection {
+    padding: 20px;
+    width: 600px;
+    align-items: center;
+    flex-direction: column;
+}
+
+#seat-selection > * {
+    margin: 10px 0;
+}
+
+#seat-details {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.seat-kind {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45px;
+}
+
+.color {
+    height: 30px;
+    width: 30px;
+}
+
+#screen {
+    width: 500px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 5px 0;
+}
+
+#movie-seats {
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+}
+
+.seat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width: 45px;
+    height: 45px;
+    margin: 20px;
+    color: black;
+}
+
+.free, #green {
+    background-color: green;
+}
+
+.taken, #red {
+    background-color: red;
+}
+
+.selected, #yellow {
+    background-color: yellow;
+}
+
+#continue-only {
+    display: flex;
+    flex-direction: column;
+}
+
+#user-balance {
+    font-weight: 1000;
+}
+
+li {
+    margin: 5px 0;
+    font-size: 20px;
+    margin-left: 23px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100px;
+    justify-content: space-between;
+    font-size: 20px;
+    margin: 0;
+}
+
+#password {
+    padding: 10px;
+    text-align: left;
+    font-family: 'Gotham';
+    font-size: 18px;
+    border-radius: 100px;
+}
+
+#success-window a:link, #success-window a:visited {
+    font-weight: 1000;
+    text-decoration: underline;
+}
+
+#success-window {
+    padding: 25px;
+}

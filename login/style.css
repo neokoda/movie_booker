@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/gotham/Gotham-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Gotham-Bold';
+    src: url('../fonts/gotham/Gotham-Bold.otf') format('opentype');
+}
+
+a:link, a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+html {
+    font-family: 'Gotham';
+    background-image: url('../images/cinemabg.jpg');
+    background-size: cover;
+    color: white;
+}
+
+body {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    transform: translate(-50%, -50%);
+    width: min(450px, 90vw);
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(rgb(0, 48, 100), rgb(0, 33, 55));
+    flex-direction: column;
+    box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
+
+}
+
+#login-message {
+    font-family: 'Gotham-Bold';
+    background: radial-gradient( rgb(180, 15, 15) , rgb(247, 0, 0));
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+    padding: 0.5rem 0;
+}
+
+form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form div {
+    margin: 0.5rem;
+}
+
+input {
+    border-radius: 100px;
+    padding: 0.5rem;    
+    font-family: 'Gotham';
+    width: 18rem;   
+}
+
+button {
+    font-family: 'Gotham-Bold';
+    background: linear-gradient(107.2deg, rgb(150, 15, 15) 10.6%, rgb(247, 0, 0) 91.1%);
+    font-size: 20px;
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    background-color: rgb(204, 0, 0);
+    color: rgb(255, 255, 255);
+    border: 0px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.025);
+    cursor: pointer;
+}
+
+button:active {
+    filter: brightness(0.8);
+    transform: scale(0.975);
+}
+
+p {
+    margin: -15px 5px 5px 5px;
+}
+
+.error-msg {
+    color: rgb(204, 0, 0);
+    font-size: 13px;
+    width: 18rem;
+}
