@@ -13,6 +13,17 @@ The technologies used in this app are:
 
 This app also uses icons from [Font Awesome](https://fontawesome.com).
 
+
+### File structure
+- fonts
+- images
+- index.php: The main page where users can see listed movies.
+- login: The pages for user registration, login, and logout
+- movie-info: Loads the description for a movie that the user clicked.
+- profile: The users' profile page. They can view their personal info, modify their balance, and change their password here.
+- purchase: The pages for purchasing a ticket. They include a page for selecting date and time, a page for selecting seats, a confirmation page, and a success page for when a user completes a transaction.
+- tickets: Users can view and refund their tickets here.
+
 ## Features
 
 ### User registration / login / logout
