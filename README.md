@@ -37,4 +37,4 @@ Then, they will be asked to confirm the booking by entering their password. Afte
 Users can top up or withdraw their balance in the "My Profile" page. The amount is validated first. Users cannot enter anything other than digits and the most they can withdraw is min(500000, current_balance).
 
 ### Extra features
-Users who want to change their password can by going to the "My Profile" page and clicking on the "Change password" button.
+Users who want to change their password can do so by going to the "My Profile" page and clicking on the "Change password" button.
