@@ -9,9 +9,11 @@ The technologies used in this app are:
 - CSS
 - Javascript
 - PHP 
-- MySQL 
+- MySQL
 
-This app also uses icons from [Font Awesome](https://fontawesome.com).
+This project utilizes XAMPP as the local development environment, including the MySQL database server.
+
+This project also uses icons from [Font Awesome](https://fontawesome.com).
 
 
 ### File structure
