@@ -30,7 +30,7 @@ body {
     width: min(450px, 90vw);
     align-items: center;
     justify-content: center;
-    background: radial-gradient(rgb(0, 48, 100), rgb(0, 33, 55));
+    background: radial-gradient(rgb(0, 48, 80) 60%, rgb(0, 10, 35));
     flex-direction: column;
     box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
 

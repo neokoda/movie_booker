@@ -1,7 +1,7 @@
 <?php
 include '../login/config.php';
 session_start();
-$total_price = intval($_SESSION['price']) * count($_SESSION['seats']);
+$total_price = intval($_SESSION['price']) * count($_SESSION['seats']); // count total price
 
 if (isset($_POST['submit'])) {
     $password = $_POST['password'];
@@ -9,22 +9,22 @@ if (isset($_POST['submit'])) {
     
     $sql = "SELECT * FROM user_data WHERE username='{$_SESSION['username']}'";
     $result = mysqli_query($conn, $sql);
-    $serialized_seats = serialize($_SESSION['seats']);
+    $serialized_seats = serialize($_SESSION['seats']); // serialize seat to store in sql database
     
     if ((intval($_SESSION['balance']) - $total_price) < 0) {
         $error_msg_amount = "Insufficient balance.";
     }
     elseif ($result->num_rows > 0) { 
         $row = mysqli_fetch_assoc($result);
-        if ($row['password'] === $password) {
+        if ($row['password'] === $password) { // handle new ticket booking
             $username = $_SESSION['username'];
             $movieId = $_SESSION['movie_id'];
-            $title = mysqli_real_escape_string($conn ,$_SESSION['title']);
+            $title = mysqli_real_escape_string($conn ,$_SESSION['title']); // handle special characters in the title
             $date = $_SESSION['date'];
             $time = $_SESSION['time'];
 
             $sql = "INSERT INTO bookings (username, movie_id, title, `date`, `time`, seats, price) VALUES ('$username', '$movieId',  '$title', '$date', '$time', '$serialized_seats', '$total_price')";
-            $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql); // store in sql
 
             $deduced_balance = intval($_SESSION['balance']) - $total_price;
             $_SESSION['balance'] = $deduced_balance;

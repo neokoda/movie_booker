@@ -3,7 +3,7 @@ session_start();
 $isLoggedIn = isset($_SESSION['username']);
 
 if (isset($_GET['id']) && $_GET['id'] !== '') {
-    $_SESSION['movie_id'] = $_GET['id'];
+    $_SESSION['movie_id'] = $_GET['id']; // getting necessary movie info for ticket booking
     $_SESSION['price'] = $_GET['price'];
     $_SESSION['age_rating'] = $_GET['age_rating'];
     $_SESSION['title'] = $_GET['title'];
@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     if ($isLoggedIn) {
         if (intval($_SESSION['age']) >= intval($_SESSION['age_rating'])) {
             header("Location: ../purchase/?id=" . $_SESSION['movie_id']);
-        } else {
+        } else { // authentication
             $error_msg_age = "Inappropriate age to watch the movie.";
         }
     } else {

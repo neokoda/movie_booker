@@ -6,11 +6,11 @@ error_reporting(0);
 session_start();
 
 if (isset($_SESSION['username'])) {
-    header("Location: ../main_page.html");
+    header("Location: ../");
 }
 
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
+    $username = $_POST['username']; // saving user data
     $password = $_POST['password']; 
     $cfirm_password = $_POST['cfirm_password'];
     $birth_date = $_POST['birth_date'];
@@ -18,18 +18,18 @@ if (isset($_POST['submit'])) {
     $_SESSION['balance'] = 0;
     $_SESSION['birth_date'] = $birth_date;
     $current_date = new DateTime(); 
-    $birthdate = DateTime::createFromFormat('Y-m-d', $birth_date);
+    $birthdate = DateTime::createFromFormat('Y-m-d', $birth_date); // saving birth date instead of age to enable automatic changes in age
     
     $sql = "SELECT * FROM user_data WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
 
-    if (!preg_match('/^[A-Za-z][A-Za-z0-9]{5,31}$/', $username)) {
+    if (!preg_match('/^[A-Za-z][A-Za-z0-9]{5,31}$/', $username)) { // check valid username regex
         $invalid_uname_msg = 'Invalid username. Make sure not to start with a number and only include 6-32 alphanumeric characters .';
     } 
     elseif (!($cfirm_password === $password) and (!(empty($cfirm_password)) and !(empty($password)))) {
         $invalid_cfirm_msg = 'Passwords do not match.';
     }
-    elseif (!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $password)) {
+    elseif (!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $password)) { // check strong password regex
         $invalid_pw_msg = 'Password has to have at least 8 characters, a lowercase and an uppercase letter, a digit, and a special character.';
     } 
     elseif ($birthdate > $current_date) {

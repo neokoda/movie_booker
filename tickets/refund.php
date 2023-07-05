@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $row = mysqli_fetch_assoc($result);
 
     if ($row['password'] === $password) {
-        $sql = "DELETE FROM bookings WHERE id = '{$_GET['ticket_id']}'";
+        $sql = "DELETE FROM bookings WHERE id = '{$_GET['ticket_id']}'"; // delete ticket info from database
         $result = mysqli_query($conn, $sql);
 
         $_SESSION['balance'] = $_SESSION['balance'] + $_GET['refund_price'];

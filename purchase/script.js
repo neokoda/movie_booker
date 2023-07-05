@@ -1,4 +1,4 @@
-function getSelectedSeats() {
+function getSelectedSeats() { // get info of seats selected by the user
     let selectedSeats = [];
     for (let i = 1; i <= 64; i++) {
        seat = document.getElementById(i);

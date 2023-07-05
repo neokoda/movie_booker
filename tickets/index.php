@@ -12,7 +12,7 @@ if (isset($_GET['submit'])) {
 }
 
 echo '<div id="ticket-catalog">';
-while ($row = mysqli_fetch_assoc($result)) {
+while ($row = mysqli_fetch_assoc($result)) { // display info for each ticket
     
     echo '<div class="ticket window">';
     echo '<div>';

@@ -1,6 +1,6 @@
 async function displayInfo() {
     try {
-        const response = await fetch('https://seleksi-sea-2023.vercel.app/api/movies');
+        const response = await fetch('https://seleksi-sea-2023.vercel.app/api/movies'); // connecting to api and getting movie info
         const movieData = await response.json();
 
         let queryString = window.location.search;
@@ -27,8 +27,8 @@ async function displayInfo() {
         }
     } 
 
-async function toPurchaseScreen() {
-    try {
+async function toPurchaseScreen() { // transferring movie id info to purchase section
+    try { 
         let queryString = window.location.search;
         let params = new URLSearchParams(queryString);
         let id = params.get("id");  
@@ -40,7 +40,7 @@ async function toPurchaseScreen() {
         }
     } 
 
-function checkLoadGuestMode(isLoggedIn) {
+function checkLoadGuestMode(isLoggedIn) { // modifying header links if user is in guest mode
     if (!isLoggedIn) {
         let links = document.getElementsByClassName('user-only-link');
         for (let i = 0; i < links.length; i++) {

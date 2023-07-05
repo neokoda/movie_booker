@@ -8,16 +8,16 @@ $sql = "SELECT seats FROM bookings WHERE movie_id = '{$_SESSION['movie_id']}' AN
 $result = mysqli_query($conn, $sql);
 
 $booked_seats = [];
-while ($row = mysqli_fetch_assoc($result)) {
+while ($row = mysqli_fetch_assoc($result)) { 
     $seats = unserialize($row['seats']);
-    $booked_seats = array_merge($booked_seats, $seats);
+    $booked_seats = array_merge($booked_seats, $seats); 
 }
 
 if (isset($_GET['seats'])) {
     $selectedSeats = explode(',', $_GET['seats']);
     $_SESSION['seats'] = $selectedSeats;
     $ticketAmount = count($selectedSeats);
-    if ($_GET['seats'] === '') {
+    if ($_GET['seats'] === '') { // check for valid seat booking
         $error_msg_amount = "You must book at least one seat.";
     }
     elseif ($ticketAmount > 6) {
@@ -75,7 +75,7 @@ if (isset($_GET['seats'])) {
         <div id="screen">SCREEN</div>
 
         <div id="movie-seats">
-            <script>
+            <script> // display correct color for each seat
                 let movie_seats = document.getElementById("movie-seats");
                 let booked_seats = <?php echo json_encode($booked_seats); ?>;
 

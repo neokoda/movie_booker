@@ -1,4 +1,4 @@
-async function getMovies() {
+async function getMovies() { // load movie catalog
     try {
         const response = await fetch('https://seleksi-sea-2023.vercel.app/api/movies');
         const movieData = await response.json();
@@ -38,7 +38,7 @@ async function getMovies() {
 }
 }
 
-async function movieInfo(movieId, price, age_rating, title) {
+async function movieInfo(movieId, price, age_rating, title) { // transfer movie info to movie description page
     try {
         let url = "movie-info/?id=" + movieId + "&price=" + price + "&age_rating=" + age_rating + "&title=" + title; 
         window.location.href = url;
@@ -50,7 +50,7 @@ async function movieInfo(movieId, price, age_rating, title) {
 
 getMovies();
 
-function checkLoadGuestMode(isLoggedIn) {
+function checkLoadGuestMode(isLoggedIn) { // check if user is logged in and load guest mode if not
     if (!isLoggedIn) {
         let links = document.getElementsByClassName('user-only-link');
         for (let i = 0; i < links.length; i++) {

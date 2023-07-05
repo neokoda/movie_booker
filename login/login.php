@@ -6,7 +6,7 @@ error_reporting(0);
 session_start();
 
 if (isset($_SESSION['username'])) {
-    header("Location: ../index.php");
+    header("Location: ../index.php"); // Go to main page if success
 }
 
 if (isset($_POST['submit'])) {
@@ -18,12 +18,12 @@ if (isset($_POST['submit'])) {
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
         if ($row['password'] === $password) {
-            $_SESSION['username'] = $row['username'];
+            $_SESSION['username'] = $row['username']; // saving user info for later
             $_SESSION['balance'] = $row['balance'];
             $_SESSION['birth_date'] = $row['birth_date'];
-            $_SESSION['age'] = calculateAge($_SESSION['birth_date']);
+            $_SESSION['age'] = calculateAge($_SESSION['birth_date']); // getting user age
             header("Location: ../");
-        } else {
+        } else { // authentication
             $error_msg_pw = "Wrong password.";
         }
     } else {  

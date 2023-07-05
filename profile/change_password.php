@@ -4,18 +4,18 @@ session_start();
 include '../login/config.php';
 
 if (isset($_POST['submit'])) {
-    $username = $_SESSION['username'];
+    $username = $_SESSION['username']; 
     $password = $_POST['password']; 
     $new_password = $_POST['new-password']; 
     $cfirm_password = $_POST['confirm-new-password'];
     
     $sql = "SELECT * FROM user_data WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
-
+ 
     if (!($cfirm_password === $new_password) and (!(empty($cfirm_password)) and !(empty($new_password)))) {
-        $error_msg_cfirm = 'New passwords do not match.';
+        $error_msg_cfirm = 'New passwords do not match.'; 
     }
-    elseif (!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $new_password)) {
+    elseif (!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $new_password)) { // check if new password matches strong password regex
         $error_msg_new = 'New password has to have at least 8 characters, a lowercase and an uppercase letter, a digit, and a special character.';
     } 
     else {
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
                 $sql = "UPDATE user_data SET password = '$new_password' WHERE username = '$username'";
                 $result = mysqli_query($conn, $sql);
 
-                header("Location: ./success.html");
+                header("Location: ./success.html"); // go to success page
             }
             else {
                 $error_msg_pw = "Wrong password!";

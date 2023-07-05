@@ -8,12 +8,12 @@ if (isset($_POST['submit'])) {
     $movie_day = strtotime($_SESSION['date']);
     $current_day = strtotime(date('Y-m-d'));
     
-    if ($movie_day > $current_day) {
+    if ($movie_day > $current_day) { // compare booking and current day
         header("Location: ./select_seat.php");
-    } elseif ($movie_day === $current_day) {
-        $current_time = date('H:i:s');
+    } elseif ($movie_day === $current_day) { 
+        $current_time = date('H:i:s'); 
         $movie_time = strtotime($_SESSION['time']);
-        if ($movie_time >= $current_time) {
+        if ($movie_time >= $current_time) { // compare booking and current time
             header("Location: ./select_seat.php");
         }
         $error_msg_date = "The movie booking time has expired.";

@@ -15,10 +15,10 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_assoc($result);
         
         if ($row['password'] === $password) {
-            if (!preg_match('/^[0-9]+$/', ($_POST['amount']))) {
+            if (!preg_match('/^[0-9]+$/', ($_POST['amount']))) { // check valid topup amount
                 $error_msg_amount = "Invalid topup value. Please only inlcude numbers.";
             } 
-            elseif ($_POST['submit'] === "withdraw") {
+            elseif ($_POST['submit'] === "withdraw") { // handle withdraw click
                 if ($row['balance'] < ($amount)) {
                     $error_msg_amount = "Insufficient balance.";
                 } elseif (($amount) > 500000) {
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
                 }
             }   
 
-            elseif ($_POST['submit'] === "topup") {
+            elseif ($_POST['submit'] === "topup") { // handle topup click
                 $_SESSION['balance'] = $row['balance'] + $amount;
                 $sql = "UPDATE user_data SET balance = '{$_SESSION['balance']}' WHERE username='{$_SESSION['username']}'";
                 mysqli_query($conn, $sql);
