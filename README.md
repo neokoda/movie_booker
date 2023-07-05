@@ -26,6 +26,11 @@ This project also uses icons from [Font Awesome](https://fontawesome.com).
 - purchase: The pages for purchasing a ticket. They include a page for selecting date and time, a page for selecting seats, a confirmation page, and a success page for when a user completes a transaction.
 - tickets: Users can view and refund their tickets here.
 
+- ### Setting up the database
+1. Make sure to have MySQL installed and running.
+2. Create a new database named movie_booker.
+3. Import movie_booker.sql
+
 ## Features
 
 ### User registration / login / logout
