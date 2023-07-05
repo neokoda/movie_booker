@@ -26,10 +26,15 @@ This project also uses icons from [Font Awesome](https://fontawesome.com).
 - purchase: The pages for purchasing a ticket. They include a page for selecting date and time, a page for selecting seats, a confirmation page, and a success page for when a user completes a transaction.
 - tickets: Users can view and refund their tickets here.
 
-- ### Setting up the database
-1. Make sure to have MySQL installed and running.
+### Setting up the server
+1. Make sure Apache is installed.
+2. Place the files in this repository to Apache's 'htdocs' folder (depends on the document root directory, for Windows it's typically 'C:\xampp\htdocs').
+3. Start the Apache service.
+
+### Setting up the database
+1. Make sure to have MySQL installed and start the service.
 2. Create a new database named movie_booker.
-3. Import movie_booker.sql
+3. Import movie_booker.sql to the database.
 
 ## Features
 
