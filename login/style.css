@@ -30,7 +30,7 @@ body {
     width: min(450px, 90vw);
     align-items: center;
     justify-content: center;
-    background: radial-gradient(rgb(0, 48, 80) 60%, rgb(0, 10, 35));
+    background: radial-gradient(rgb(0, 48, 100) 70%, rgb(0, 10, 45));
     flex-direction: column;
     box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
 
@@ -94,7 +94,7 @@ p {
 }
 
 .error-msg {
-    color: rgb(204, 0, 0);
-    font-size: 13px;
+    color: rgb(255, 0, 0);
+    font-weight: 1000;
     width: 18rem;
 }
