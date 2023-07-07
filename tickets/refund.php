@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Jakarta'); // change according to your timezone
 include '../login/config.php';
 session_start();
 
@@ -11,14 +12,30 @@ if (isset($_POST['submit'])) {
     $row = mysqli_fetch_assoc($result);
 
     if ($row['password'] === $password) {
-        $sql = "DELETE FROM bookings WHERE id = '{$_GET['ticket_id']}'"; // delete ticket info from database
-        $result = mysqli_query($conn, $sql);
+        $sql_ticket = "SELECT * FROM bookings WHERE id = '{$_GET['ticket_id']}'";
+        $result_ticket = mysqli_query($conn, $sql_ticket);
+        $row_ticket = mysqli_fetch_assoc($result_ticket);
+        
+        $current_date = strtotime(date('Y-m-d'));
+        $ticket_date = strtotime($row_ticket['date']);
+        $current_time = strtotime(date('H:i:s')); 
+        $ticket_time = strtotime($row_ticket['time']);
 
-        $_SESSION['balance'] = $_SESSION['balance'] + $_GET['refund_price'];
-        $sql = "UPDATE user_data SET balance = '{$_SESSION['balance']}'  WHERE username = '$username'";
-        $result = mysqli_query($conn, $sql);
 
-        header("Location: ../purchase/success.html");
+        if ($current_date > $ticket_date) { // not allow refund for past movie
+            $error_msg_date = "Refund unavailable since the movie's showtime has past.";
+        } elseif (($current_date === $ticket_date) && ($current_time > $ticket_time)) {
+            $error_msg_date = "Refund unavailable since the movie's showtime has past.";
+        } else {
+            $sql = "DELETE FROM bookings WHERE id = '{$_GET['ticket_id']}'"; // delete ticket info from database
+            $result = mysqli_query($conn, $sql);
+    
+            $_SESSION['balance'] = $_SESSION['balance'] + $_GET['refund_price'];
+            $sql = "UPDATE user_data SET balance = '{$_SESSION['balance']}'  WHERE username = '$username'";
+            $result = mysqli_query($conn, $sql);
+    
+            header("Location: ../purchase/success.html");
+        }
     } else {
         $error_msg_pw = "Wrong password.";
     }
@@ -57,6 +74,7 @@ if (isset($_POST['submit'])) {
                     <div class="input-title">Password</div>
                     <input type="password" name="password" id="password" placeholder="Enter your password" required>
                     <div class="error-msg"><?php echo isset($error_msg_pw) ? $error_msg_pw : ''; ?></div>
+                    <div class="error-msg"><?php echo isset($error_msg_date) ? $error_msg_date : ''; ?></div>
             </div>
             <button type="submit" name="submit">Refund</button> 
         </form>

@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Jakarta'); // change according to your timezone
 session_start();
 
 if (isset($_POST['submit'])) {
@@ -11,7 +12,7 @@ if (isset($_POST['submit'])) {
     if ($movie_day > $current_day) { // compare booking and current day
         header("Location: ./select_seat.php");
     } elseif ($movie_day === $current_day) { 
-        $current_time = date('H:i:s'); 
+        $current_time = strtotime(date('H:i:s')); 
         $movie_time = strtotime($_SESSION['time']);
         if ($movie_time >= $current_time) { // compare booking and current time
             header("Location: ./select_seat.php");
